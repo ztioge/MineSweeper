@@ -87,11 +87,12 @@ function addFlag(square)  {
     return
   }
 
-  if (square.classList.contains('checked') && flags < bombAmount) {
+  if (!square.classList.contains('checked') && flags < bombAmount) {
     if(!square.classList.contains('flag')){
       square.classList.add('flag')
       square.innerHTML = '🚩'
       flags++
+      checkForWin();
     } else {
       square.classList.remove('flag')
       square.innerHTML = ''
@@ -201,8 +202,16 @@ function addFlag(square)  {
 
   //Check for win
   function checkForWin() {
+  let matches = 0
     for (let i = 0; i < squares.length; i++) {
-      if()
+      if(squares[i].classList.contains('flag') && squares[i].classList.contains('bomb')){
+        matches ++
+      }
+
+      if (matches === bombAmount) {
+        console.log('WIN!')
+        isGameOver = true
+      }
     }
   }
 
