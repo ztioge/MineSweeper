@@ -9,6 +9,13 @@
 .grid div{
   height: 40px;
   width: 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+.grid div data{
+
 }
 
 .checked{
